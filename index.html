@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanzania PAYE Calculator 2026</title>
+    <link rel="stylesheet" href="PAYE.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Tanzania PAYE Calculator</h1>
+            <p class="subtitle">2025/2026 Tax Year • TRA Compliant</p>
+        </header>
+        
+        <div class="main">
+            <!-- Input Section -->
+            <div class="input-section">
+                <h2>Employee Details</h2>
+                
+                <div class="form-group">
+                    <label for="gross">Gross Monthly Salary (TZS)</label>
+                    <input type="number" id="gross" value="800000" placeholder="e.g. 800000">
+                </div>
+                
+                <div class="form-group">
+                    <label for="benefits">Taxable Benefits / Allowances (TZS)</label>
+                    <input type="number" id="benefits" value="0" placeholder="0">
+                </div>
+                
+                <div class="form-group">
+                    <label for="nssf">NSSF Employee Contribution (%)</label>
+                    <input type="number" id="nssf" value="10" step="0.1" placeholder="10">
+                </div>
+                
+                <div class="form-group">
+                    <label for="nhif">NHIF Contribution (TZS) - Optional</label>
+                    <input type="number" id="nhif" value="0" placeholder="Auto or manual">
+                </div>
+                
+                <button onclick="calculatePAYE()">Calculate PAYE</button>
+                
+                <div class="note">
+                    <strong>Tax Brackets (Monthly Taxable Income):</strong><br>
+                    • 0 - 270,000: 0%<br>
+                    • 270,001 - 520,000: 8%<br>
+                    • 520,001 - 760,000: 20,000 + 20%<br>
+                    • 760,001 - 1,000,000: 68,000 + 25%<br>
+                    • Above 1M: 128,000 + 30%
+                </div>
+            </div>
+            
+            <!-- Results Section -->
+            <div class="result-section">
+                <h2>Calculation Results</h2>
+                
+                <div id="results" style="display: none;">
+                    <div class="result">
+                        <div class="result-row">
+                            <span class="label">Gross Income</span>
+                            <span class="value" id="grossOut">0</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="label">NSSF Deduction</span>
+                            <span class="value" id="nssfOut">0</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="label">Taxable Income</span>
+                            <span class="value" id="taxableOut">0</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="label">PAYE (Income Tax)</span>
+                            <span class="value" id="payeOut" style="color: #d32f2f;">0</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="label">NHIF</span>
+                            <span class="value" id="nhifOut">0</span>
+                        </div>
+                    </div>
+                    
+                    <div class="total">
+                        <div>Net Pay to Employee</div>
+                        <div id="netOut" style="font-size: 2rem; margin-top: 8px;">0 TZS</div>
+                    </div>
+                    
+                    <div style="margin-top: 25px;">
+                        <h2 style="font-size: 1.2rem; margin-bottom: 15px;">Employer Costs (Additional)</h2>
+                        <div class="result">
+                            <div class="result-row">
+                                <span class="label">NSSF Employer Share (10%)</span>
+                                <span class="value" id="nssfEmployer">0</span>
+                            </div>
+                            <div class="result-row">
+                                <span class="label">SDL (3.5%)</span>
+                                <span class="value" id="sdlOut">0</span>
+                            </div>
+                            <div class="result-row">
+                                <span class="label">WCF (0.5%)</span>
+                                <span class="value" id="wcfOut">0</span>
+                            </div>
+                            <div class="result-row" style="font-weight: 600; background: #f0f0f0; margin-top: 10px; padding: 12px 8px;">
+                                <span class="label">Total Employer Cost</span>
+                                <span class="value" id="totalEmployer">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="placeholder">
+                    <p style="text-align:center; padding: 80px 20px; color:#888; font-size: 1.4rem;">
+                        Enter salary above and click Calculate
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>Disclaimer:</strong> Educational tool based on TRA tax tables (2025/2026). Consult TRA or a tax professional for official use.</p>
+            <p style="margin-top: 10px;">Accurate • Responsive • Easy to Use</p>
+        </div>
+    </div>
+
+    <script src="PAYE.js"></script>
+</body>
+</html>
